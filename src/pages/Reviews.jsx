@@ -57,7 +57,7 @@ function Reviews() {
               </div>
 
               <div className="space-y-3">
-                {reviews.ratingBreakdown.map((item) => (
+                {(reviews?.ratingBreakdown || []).map((item) => (
                   <div
                     key={item.stars}
                     className="flex items-center gap-3"
@@ -91,7 +91,7 @@ function Reviews() {
       <section className="section-padding bg-earth-50">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            {reviews.items.map((review, index) => (
+            {(reviews?.items || []).map((review, index) => (
               <SectionReveal key={review.name} delay={(index % 6) * 0.08}>
                 <div className="bg-white rounded-2xl p-5 sm:p-6 border border-earth-100 h-full flex flex-col hover:shadow-lg transition-shadow">
                   <div className="flex items-center gap-1 mb-1">

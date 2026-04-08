@@ -69,7 +69,7 @@ function About() {
                   {about.storyTitle}
                 </h2>
                 <div className="space-y-4 text-steel-600 leading-relaxed text-sm sm:text-base">
-                  {about.storyParagraphs.map((p, i) => (
+                  {(about?.storyParagraphs || [about?.story || ""]).map((p, i) => (
                     <p key={i}>{p}</p>
                   ))}
                 </div>
@@ -92,7 +92,7 @@ function About() {
                   Our Mission
                 </h3>
                 <p className="text-steel-600 leading-relaxed text-sm sm:text-base">
-                  {about.mission}
+                  {about?.mission || ""}
                 </p>
               </div>
             </SectionReveal>
@@ -106,7 +106,7 @@ function About() {
                   Our Vision
                 </h3>
                 <p className="text-steel-600 leading-relaxed text-sm sm:text-base">
-                  {about.vision}
+                  {about?.vision || ""}
                 </p>
               </div>
             </SectionReveal>
@@ -129,7 +129,7 @@ function About() {
           </SectionReveal>
 
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            {about.values.map((value, index) => {
+            {(about?.values || []).map((value, index) => {
               const IconComp = iconMap[value.iconName] || iconMap.ShieldCheck;
               return (
                 <SectionReveal key={value.title} delay={index * 0.1}>
@@ -170,7 +170,7 @@ function About() {
           </SectionReveal>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
-            {about.team.map((member, index) => (
+            {(about?.team || []).map((member, index) => (
               <SectionReveal key={member.name} delay={index * 0.1}>
                 <div className="group text-center">
                   <div className="relative mb-4 sm:mb-6 rounded-2xl overflow-hidden aspect-[3/4]">
@@ -210,7 +210,7 @@ function About() {
           <div className="relative">
             <div className="absolute left-8 top-0 bottom-0 w-px bg-earth-200 hidden sm:block" />
             <div className="space-y-8 sm:space-y-10">
-              {about.milestones.map((milestone, index) => (
+              {(about?.milestones || []).map((milestone, index) => (
                 <SectionReveal key={milestone.year} delay={index * 0.1}>
                   <div className="flex gap-4 sm:gap-8 items-start">
                     <div className="relative hidden sm:block">

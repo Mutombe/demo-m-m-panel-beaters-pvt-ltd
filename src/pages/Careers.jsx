@@ -71,7 +71,7 @@ function Careers() {
           </SectionReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
-            {careers.cultureItems.map((item, index) => {
+            {(careers?.cultureItems || []).map((item, index) => {
               const IconComp = iconMap[item.iconName] || iconMap.Users;
               return (
                 <SectionReveal key={item.title} delay={index * 0.1}>
@@ -134,7 +134,7 @@ function Careers() {
           </SectionReveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            {careers.benefits.map((benefit, index) => {
+            {(careers?.benefits || []).map((benefit, index) => {
               const IconComp =
                 iconMap[benefit.iconName] || iconMap.ShieldCheck;
               return (
@@ -177,7 +177,7 @@ function Careers() {
           </SectionReveal>
 
           <div className="space-y-4">
-            {careers.positions.map((job, index) => (
+            {(careers?.positions || []).map((job, index) => (
               <SectionReveal key={job.id} delay={index * 0.08}>
                 <div className="bg-earth-50 border border-earth-100 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
                   <button
@@ -239,7 +239,7 @@ function Careers() {
                             Requirements
                           </h4>
                           <ul className="space-y-2 mb-6">
-                            {job.requirements.map((req) => (
+                            {(job?.requirements || []).map((req) => (
                               <li
                                 key={req}
                                 className="flex items-start gap-2 text-sm text-steel-600"

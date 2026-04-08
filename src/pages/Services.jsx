@@ -33,7 +33,7 @@ function Services() {
       />
 
       {/* Services Grid */}
-      {services.items.map((service, index) => {
+      {(services?.items || []).map((service, index) => {
         const IconComp = iconMap[service.iconName] || iconMap.Buildings;
         return (
           <section
@@ -86,7 +86,7 @@ function Services() {
                       {service.desc}
                     </p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 sm:mb-8">
-                      {service.features.map((feature) => (
+                      {(service?.features || []).map((feature) => (
                         <div
                           key={feature}
                           className="flex items-start gap-3"

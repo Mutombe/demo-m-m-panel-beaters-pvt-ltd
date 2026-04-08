@@ -236,7 +236,7 @@ function Contact() {
                           className="w-full bg-white border border-earth-200 rounded-xl px-4 py-3 text-navy-900 text-sm focus:outline-none focus:ring-2 focus:ring-gold-500/50 focus:border-gold-500 transition-colors"
                         >
                           <option value="">Select a service</option>
-                          {services.items.map((s) => (
+                          {(services?.items || []).map((s) => (
                             <option key={s.title}>{s.title}</option>
                           ))}
                           <option>Other</option>
@@ -330,7 +330,7 @@ function Contact() {
                     <h3 className="text-base sm:text-lg font-bold">Business Hours</h3>
                   </div>
                   <div className="space-y-3 sm:space-y-4">
-                    {business.hours.map((h) => (
+                    {(business?.hours || []).map((h) => (
                       <div
                         key={h.day}
                         className="flex items-center justify-between text-xs sm:text-sm"
